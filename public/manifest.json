@@ -1,0 +1,20 @@
+{
+  "name": "Jussara Muehlbauer França - Estética Avançada & Humanizada",
+  "short_name": "JMF Estética",
+  "description": "Estética avançada e humanizada em São Bento do Sul/SC. Desde 2006.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fdf6f4",
+  "theme_color": "#a8644d",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./logo-jmf.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "lang": "pt-BR",
+  "categories": ["beauty", "health"]
+}
