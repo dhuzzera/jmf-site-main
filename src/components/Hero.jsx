@@ -32,16 +32,16 @@ export default function Hero() {
       id="inicio"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background — capa image */}
+      {/* Background with capa */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-brand-200 via-brand-100 to-gold-100" />
         <img
           src="/capa.png"
           alt=""
-          className="absolute top-0 left-0 w-full h-full object-cover opacity-40"
+          className="absolute top-0 left-0 w-full h-full object-cover opacity-30"
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-100/60 via-transparent to-brand-100/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-100/50 via-transparent to-brand-100/70" />
       </div>
 
       {/* Subtle dot pattern */}
