@@ -12,11 +12,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <img
-              src="/logo-jmf.png"
+              src="/logo-full.png"
               alt="Logo JMF Estética"
               width="56"
               height="56"
-              className="h-14 w-auto object-contain mb-4 brightness-0 invert"
+              className="h-16 w-auto object-contain mb-4 brightness-0 invert"
             />
             <p className="text-brand-300 text-sm leading-relaxed">
               Estética avançada e humanizada em São Bento do Sul/SC.

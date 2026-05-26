@@ -6,7 +6,7 @@ export default function About() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="sobre" className="py-24 bg-white">
+    <section id="sobre" className="py-24 bg-white bg-pattern">
       <div
         ref={ref}
         className={`max-w-7xl mx-auto px-6 transition-all duration-700 ${

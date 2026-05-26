@@ -52,7 +52,7 @@ export default function Services() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="servicos" className="py-24 bg-brand-50/50">
+    <section id="servicos" className="py-24 bg-section-warm">
       <div
         ref={ref}
         className={`max-w-7xl mx-auto px-6 transition-all duration-700 ${
@@ -77,7 +77,7 @@ export default function Services() {
           {services.map((service) => (
             <div
               key={service.title}
-              className="group relative bg-white rounded-2xl p-7 border border-brand-100 hover:border-brand-300 hover:shadow-xl hover:shadow-brand-100/50 transition-all duration-300 hover:-translate-y-1"
+              className="group relative bg-white rounded-2xl p-7 border border-brand-200 hover:border-brand-400 shadow-md hover:shadow-xl hover:shadow-brand-200/50 transition-all duration-300 hover:-translate-y-1"
             >
               {service.tag && (
                 <span className="absolute top-4 right-4 px-3 py-1 bg-gold-100 text-gold-700 text-xs font-semibold rounded-full">

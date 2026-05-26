@@ -24,7 +24,7 @@ export default function Testimonials() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="depoimentos" className="py-24 bg-brand-50/50">
+    <section id="depoimentos" className="py-24 bg-section-warm">
       <div
         ref={ref}
         className={`max-w-7xl mx-auto px-6 transition-all duration-700 ${
@@ -48,7 +48,7 @@ export default function Testimonials() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.name}
-              className="bg-white rounded-2xl p-7 border border-brand-100 shadow-sm hover:shadow-md hover:-translate-y-1 hover:rotate-[0.5deg] transition-all duration-300"
+              className="bg-white rounded-2xl p-7 border border-brand-200 shadow-md hover:shadow-lg hover:-translate-y-1 hover:rotate-[0.5deg] transition-all duration-300"
             >
               <Quote size={24} className="text-brand-200 mb-4" />
               <p className="text-gray-600 leading-relaxed mb-6 italic">

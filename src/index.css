@@ -16,8 +16,23 @@ a {
 }
 
 ::selection {
-  background-color: #f3ddd3;
+  background-color: #f2d5cc;
   color: #623b31;
+}
+
+/* Subtle pattern background for sections */
+.bg-pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(168, 100, 77, 0.04) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+/* Stronger gradient sections */
+.bg-section-warm {
+  background: linear-gradient(135deg, #fdf6f4 0%, #fae9e4 50%, #fdf6f4 100%);
+}
+
+.bg-section-rich {
+  background: linear-gradient(180deg, #fae9e4 0%, #f2d5cc 30%, #fae9e4 100%);
 }
 
 /* Respect reduced motion preferences */

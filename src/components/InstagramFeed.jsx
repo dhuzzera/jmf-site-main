@@ -40,7 +40,7 @@ export default function InstagramFeed() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-24 bg-brand-50/50">
+    <section className="py-24 bg-section-rich">
       <div
         ref={ref}
         className={`max-w-7xl mx-auto px-6 transition-all duration-700 ${

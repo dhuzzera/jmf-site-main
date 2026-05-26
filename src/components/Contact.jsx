@@ -7,7 +7,7 @@ export default function Contact() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="contato" className="py-24 bg-white">
+    <section id="contato" className="py-24 bg-section-warm">
       <div
         ref={ref}
         className={`max-w-7xl mx-auto px-6 transition-all duration-700 ${

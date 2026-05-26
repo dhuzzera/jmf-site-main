@@ -44,7 +44,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-24 bg-white">
+    <section id="faq" className="py-24 bg-white bg-pattern">
       <div
         ref={ref}
         className={`max-w-3xl mx-auto px-6 transition-all duration-700 ${
@@ -67,7 +67,7 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border border-brand-100 rounded-xl overflow-hidden"
+              className="border border-brand-200 rounded-xl overflow-hidden bg-white shadow-sm"
             >
               <button
                 onClick={() => toggle(index)}

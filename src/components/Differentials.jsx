@@ -33,7 +33,7 @@ export default function Differentials() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="diferenciais" className="py-24 bg-white">
+    <section id="diferenciais" className="py-24 bg-white bg-pattern">
       <div
         ref={ref}
         className={`max-w-7xl mx-auto px-6 transition-all duration-700 ${

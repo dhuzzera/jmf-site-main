@@ -32,26 +32,50 @@ export default function Hero() {
       id="inicio"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-brand-50 via-white to-gold-50" />
+      {/* Background — capa image */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-200 via-brand-100 to-gold-100" />
+        <img
+          src="/capa.png"
+          alt=""
+          className="absolute top-0 left-0 w-full h-full object-cover opacity-40"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-100/60 via-transparent to-brand-100/80" />
+      </div>
+
+      {/* Subtle dot pattern */}
+      <div className="absolute inset-0 bg-pattern opacity-30" />
 
       {/* Decorative elements with parallax */}
       <div
-        className="absolute top-20 right-10 w-72 h-72 bg-brand-200/30 rounded-full blur-3xl"
+        className="absolute top-10 right-[5%] w-80 h-80 bg-brand-300/30 rounded-full blur-3xl"
         style={{ transform: `translateY(${scrollY * 0.15}px)` }}
       />
       <div
-        className="absolute bottom-20 left-10 w-96 h-96 bg-gold-200/20 rounded-full blur-3xl"
+        className="absolute bottom-10 left-[5%] w-96 h-96 bg-gold-300/20 rounded-full blur-3xl"
         style={{ transform: `translateY(${scrollY * -0.1}px)` }}
       />
 
+      {/* Decorative border lines */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-brand-400/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-300/50 to-transparent" />
+
       <div
         ref={ref}
-        className={`relative z-10 max-w-5xl mx-auto px-6 text-center py-32 transition-all duration-1000 ${
+        className={`relative z-10 max-w-5xl mx-auto px-6 text-center py-24 sm:py-32 transition-all duration-1000 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-100/60 rounded-full mb-8">
+        {/* Logo — hidden if fails to load */}
+        <img
+          src="/logo-full.png"
+          alt="JMF Estética"
+          className="h-32 sm:h-40 md:h-48 w-auto mx-auto mb-8 drop-shadow-lg"
+          onError={(e) => { e.currentTarget.style.display = "none"; }}
+        />
+
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/70 backdrop-blur-sm rounded-full mb-8 shadow-sm">
           <Sparkles size={16} className="text-brand-600" />
           <span className="text-sm font-medium text-brand-700">
             Desde {SITE.since} em São Bento do Sul/SC
@@ -88,7 +112,7 @@ export default function Hero() {
         </div>
 
         {/* Trust indicators with animated counters */}
-        <div ref={statsRef} className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl mx-auto">
+        <div ref={statsRef} className="mt-16 bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-brand-200/50 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl mx-auto">
           <AnimatedStat number={new Date().getFullYear() - SITE.since} suffix="+" label="Anos de experiência" start={statsVisible} />
           <AnimatedStat number={5000} suffix="+" label="Clientes atendidas" start={statsVisible} />
           <div className="text-center">

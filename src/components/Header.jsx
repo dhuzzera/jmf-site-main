@@ -42,7 +42,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <a href="#inicio" className="flex items-center gap-3">
           <img
-            src="/logo-jmf.png"
+            src="/logo-icon.png"
             alt="Logo JMF Estética"
             width="48"
             height="48"
