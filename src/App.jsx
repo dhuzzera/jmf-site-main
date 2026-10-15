@@ -55,6 +55,9 @@ export default function App() {
       <Suspense fallback={null}>
         <Footer />
       </Suspense>
+      <div className="border-t border-gray-200 px-4 py-3 text-center text-xs text-gray-500">
+        Desenvolvido por <a href="https://www.instagram.com/emf.digital/" target="_blank" rel="noopener noreferrer" className="font-medium hover:underline">@emf.digital</a>
+      </div>
       <ScrollToTop />
       <WhatsAppButton />
       <ExitIntent />
