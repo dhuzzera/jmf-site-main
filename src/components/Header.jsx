@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { CONTACT } from "../constants";
 import useActiveSection from "../hooks/useActiveSection";
@@ -15,6 +15,7 @@ const navLinks = [
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const menuButtonRef = useRef(null);
 
   const sectionIds = useMemo(() => navLinks.map((l) => l.id), []);
   const activeSection = useActiveSection(sectionIds);
@@ -29,6 +30,21 @@ export default function Header() {
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
+  }, [isOpen]);
+
+  // Keep the collapsed mobile menu out of keyboard navigation and support Escape.
+  useEffect(() => {
+    if (!isOpen) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isOpen]);
 
   return (
@@ -77,10 +93,13 @@ export default function Header() {
         </nav>
 
         <button
+          ref={menuButtonRef}
+          type="button"
           className="md:hidden p-2 text-brand-800"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
           aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -88,6 +107,8 @@ export default function Header() {
 
       {/* Mobile menu with animation */}
       <div
+        id="mobile-navigation"
+        aria-hidden={!isOpen}
         className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
           isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
         }`}
@@ -98,6 +119,7 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
+                tabIndex={isOpen ? 0 : -1}
                 onClick={() => setIsOpen(false)}
                 className={`py-3 font-medium transition-colors border-b border-gray-50 last:border-0 ${
                   activeSection === link.id
@@ -112,6 +134,7 @@ export default function Header() {
               href={`${CONTACT.whatsappLink}?text=${encodeURIComponent(CONTACT.whatsappMessage)}`}
               target="_blank"
               rel="noopener noreferrer"
+              tabIndex={isOpen ? 0 : -1}
               aria-label="Agendar pelo WhatsApp"
               className="mt-3 px-5 py-3 bg-brand-600 text-white text-center font-medium rounded-full hover:bg-brand-700 transition-colors"
             >
