@@ -11,7 +11,13 @@ export default function useScrollReveal(options = {}) {
 
   useEffect(() => {
     const element = ref.current;
-    if (!element) return;
+    if (!element) return undefined;
+
+    // Never leave content hidden in browsers without IntersectionObserver support.
+    if (typeof IntersectionObserver === "undefined") {
+      setIsVisible(true);
+      return undefined;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
