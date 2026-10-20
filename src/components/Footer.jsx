@@ -30,13 +30,18 @@ export default function Footer() {
               Navegação
             </h4>
             <ul className="space-y-2">
-              {["Início", "Sobre", "Serviços", "Contato"].map((link) => (
-                <li key={link}>
+              {[
+                { label: "Início", href: "#inicio" },
+                { label: "Sobre", href: "#sobre" },
+                { label: "Serviços", href: "#servicos" },
+                { label: "Contato", href: "#contato" }
+              ].map((link) => (
+                <li key={link.href}>
                   <a
-                    href={`#${link.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`}
+                    href={link.href}
                     className="text-sm text-brand-300 hover:text-white transition-colors"
                   >
-                    {link}
+                    {link.label}
                   </a>
                 </li>
               ))}
